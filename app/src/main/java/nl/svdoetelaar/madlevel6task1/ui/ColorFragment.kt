@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_color.*
 import nl.svdoetelaar.madlevel6task1.R
 import nl.svdoetelaar.madlevel6task1.model.ColorItem
+import nl.svdoetelaar.madlevel6task1.viewmodel.ColorViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -18,6 +20,8 @@ import nl.svdoetelaar.madlevel6task1.model.ColorItem
 class ColorFragment : Fragment() {
     private val colors = arrayListOf<ColorItem>()
     private lateinit var colorAdapter: ColorAdapter
+
+    private val viewModel: ColorViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +46,13 @@ class ColorFragment : Fragment() {
         Snackbar.make(rvColors, "This color is: ${colorItem.name}", Snackbar.LENGTH_LONG).show()
     }
 
+
     private fun observeColors() {
-        TODO("Not yet implemented")
+        viewModel.colorItems.observe(viewLifecycleOwner, {
+            colors.clear()
+            colors.addAll(it)
+            colorAdapter.notifyDataSetChanged()
+        })
     }
+
 }
