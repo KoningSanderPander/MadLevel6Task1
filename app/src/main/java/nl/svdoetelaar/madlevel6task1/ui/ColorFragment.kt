@@ -34,10 +34,11 @@ class ColorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        colorAdapter = ColorAdapter(colors, ::onColorClick)
+
         rvColors.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         rvColors.adapter = colorAdapter
 
-        colorAdapter = ColorAdapter(colors, ::onColorClick)
 
         observeColors()
     }

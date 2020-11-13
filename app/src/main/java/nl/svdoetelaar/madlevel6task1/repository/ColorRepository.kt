@@ -1,4 +1,4 @@
-package layout
+package nl.svdoetelaar.madlevel6task1.repository
 
 import nl.svdoetelaar.madlevel6task1.model.ColorItem
 

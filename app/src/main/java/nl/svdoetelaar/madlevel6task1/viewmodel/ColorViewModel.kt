@@ -3,7 +3,7 @@ package nl.svdoetelaar.madlevel6task1.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import layout.ColorRepository
+import nl.svdoetelaar.madlevel6task1.repository.ColorRepository
 import nl.svdoetelaar.madlevel6task1.model.ColorItem
 
 class ColorViewModel : ViewModel() {
