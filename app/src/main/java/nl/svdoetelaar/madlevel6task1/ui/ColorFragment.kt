@@ -34,9 +34,15 @@ class ColorFragment : Fragment() {
         rvColors.adapter = colorAdapter
 
         colorAdapter = ColorAdapter(colors, ::onColorClick)
+
+        observeColors()
     }
 
     private fun onColorClick(colorItem: ColorItem) {
         Snackbar.make(rvColors, "This color is: ${colorItem.name}", Snackbar.LENGTH_LONG).show()
+    }
+
+    private fun observeColors() {
+        TODO("Not yet implemented")
     }
 }
